@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular2021';
+  myStatus = 'my status';
+  
   constructor() {
     const testMap = [1, 2, 3, 4, 5, 6].map(item => item * 2);
     console.log(testMap);
@@ -139,6 +141,10 @@ console.log('aaa', b)
 console.log ('222= ' , [1,2,3,4,5,6].filter (s => s%2 !==0).join (','))
 
 
+}
+
+printDataFabianseguComp(event:any){
+  console.log('FABIANSEGU COMP:', event);
 }
 
 }

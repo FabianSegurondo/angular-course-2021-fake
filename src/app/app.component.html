@@ -1,5 +1,11 @@
 <p>App component</p>
 
-<fabiansegu-comp status = "busy"></fabiansegu-comp>
+
+
+<fabiansegu-comp
+[status]="myStatus" 
+(onSendData)="printDataFabianseguComp($event)">
+</fabiansegu-comp>
+
 
 <app-test2></app-test2>
