@@ -13,6 +13,13 @@ export class AppComponent {
 
   color:string;
 
+  people = [
+    { name: 'felipe', lastName: 'felipao' },
+    { name: 'achito', lastName: 'del ozo' },
+    { name: 'maximus', lastName: 'salazn' },
+    { name: 'sebita', lastName: 'blacky' }
+  ];
+
   constructor() {
     const testMap = [1, 2, 3, 4, 5, 6].map(item => item * 2);
     console.log(testMap);
