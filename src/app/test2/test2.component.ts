@@ -10,16 +10,19 @@ export class Test2Component implements OnInit {
   @Input() lastName: string;
   @Output() onSendData = new EventEmitter(null);
 
+
+  myvar1 = 4;
+  myvar2 = 5;
+
   constructor() {}
 ngOnInit(): void {
 throw new Error('Method not implemented.');
 }
-myvar1 = 4;
-myvar2 = 5;
 
   onShowData(){
     this.onSendData.emit('general data ' + this.name + ' ' + this.lastName);
   }
+
   test0(event){
     console.log('event click:', event);
     console.log('SUMA: ', this.myvar1 + this.myvar2);
@@ -32,5 +35,4 @@ myvar2 = 5;
   test3(event){
     console.log('event double click:', event);
   }
-
 }

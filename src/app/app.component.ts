@@ -9,6 +9,8 @@ export class AppComponent {
   title = 'angular2021';
   myStatus = 'my status';
 
+  sw = true;
+
   constructor() {
     const testMap = [1, 2, 3, 4, 5, 6].map(item => item * 2);
     console.log(testMap);
