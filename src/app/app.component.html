@@ -25,3 +25,33 @@
   [name]="myStatus">
   </app-test3>
 </div>
+
+
+
+<p>----------------------</p>
+  <span *ngFor="let item of ['first', 'second', 'thrid']; let i = index;">
+    <fabiansegu-comp
+    *ngIf="item !== 'first'"
+    [status]="item" 
+    (onSendData)="printDataFabianseguComp($event)">
+    </fabiansegu-comp>
+  </span>
+  <p>-------------------------------</p>
+
+<input type="text" [(ngModel)]="color">
+<ul [ngSwitch]="color">
+  <li *ngSwitchCase="'red'">
+  <fabiansegu-comp
+    [status]="color" 
+    (onSendData)="printDataFabianseguComp($event)">
+    </fabiansegu-comp>
+  </li>
+  <li *ngSwitchCase="'yellow'">
+  <app-test3 
+  [name]="color">
+  </app-test3></li>
+  <li *ngSwitchCase="'green'">green</li>
+  <li *ngSwitchDefault>Default Orange</li>
+</ul>
+
+
