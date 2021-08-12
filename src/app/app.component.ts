@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {of} from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,34 @@ export class AppComponent {
     { name: 'sebita', lastName: 'blacky' }
   ];
 
+  tictock = of([1,2,3,4,5]);
+
+
   constructor() {
+
+    //ejemplo de tictoc que vemos con of, subscribe se ejcuta el observable
+    //cada persona que se suscribe recibe videos
+
+    //persona A
+    this.tictock.pipe(
+      map(s => s.join('-')),
+      map(s => s + 'hola'),
+    ).subscribe(v => {
+      console.log('PERSON A VIDEO', v);
+    });
+   
+    //persona B
+    this.tictock.pipe(
+      filter((v:any) => v[0]%2 === 1)
+    ).subscribe(v => {
+      console.log('PERSON B VIDEO', v);
+    });
+     //persona C
+     this.tictock.subscribe(v => {
+      console.log('PERSONA C VIDEO', v)
+    });
+
+
     const testMap = [1, 2, 3, 4, 5, 6].map(item => item * 2);
     console.log(testMap);
 
@@ -162,4 +191,8 @@ printData(event){
   console.log('CHILD COMP SEND DATA: ', event);
 }
 
+
+onAddVideo(){
+
+}
 }
