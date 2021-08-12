@@ -127,3 +127,12 @@ lastName="gutierres"
 }"> 
 my div with ng class
 </div>
+
+<ng-container *ngFor="let item of [1,2,3,4,5]; let i = index">
+<ng-template #template2>
+<ul><li [style.background]="'yellow'">{{item}}</li></ul>
+</ng-template> 
+<ul *ngIf="i%2 === 0; else template2">
+<li [style.background]="'red'">{{item}}</li>
+</ul>
+<ng-container>
