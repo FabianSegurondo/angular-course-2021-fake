@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {of} from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import {BehaviorSubject, Subscription} from 'rxjs';
+import { filter, map,delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,9 @@ export class AppComponent {
   ];
 
   tictock = of([1,2,3,4,5]);
+  personaAsub:Subscription;
+  video = 1;
+  ticktock2 = new BehaviorSubject(this.video);
 
 
   constructor() {
@@ -48,6 +52,26 @@ export class AppComponent {
      this.tictock.subscribe(v => {
       console.log('PERSONA C VIDEO', v)
     });
+
+    //ahora con los ejemplos de observer para tictoc y con behavior
+    // PERSON A
+    this.personaAsub = this.ticktock2.pipe(
+      filter(s => s%2 === 0)
+    ).subscribe(v => {
+      console.log('PERSON A VIDEO', v);
+    });
+    // PERSON B
+    this.tictock.pipe(
+      delay(4000)
+    ).subscribe(v => {
+      console.log('PERSON B VIDEO', v);
+    });
+    // PERSON C
+    this.tictock.subscribe(v => {
+      console.log('PERSON C VIDEO', v);
+    });
+    
+
 
 
     const testMap = [1, 2, 3, 4, 5, 6].map(item => item * 2);
@@ -109,7 +133,7 @@ export class AppComponent {
   //para el segindo key
   const testKey = {value: 'ricardo', key:'RPC'};
   console.log('bbbb', Object.keys(testEntries));
-
+    
   //tambien se puede hacer lo mismo para mostrar todos los valores
   //OJO PREGUNTA EXAMEN
   //TENEMOS
@@ -193,6 +217,11 @@ printData(event){
 
 
 onAddVideo(){
-
+  this.video ++
+  this.ticktock2.next(this.video); 
+}
+person1Unsubscribe(){
+  this.personaAsub.unsubscribe();
+  console.log('PERSON A SE DESUSCRIBE')
 }
 }
