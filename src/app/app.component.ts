@@ -224,4 +224,7 @@ person1Unsubscribe(){
   this.personaAsub.unsubscribe();
   console.log('PERSON A SE DESUSCRIBE')
 }
+test (event){
+  console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,', event);
+}
 }
