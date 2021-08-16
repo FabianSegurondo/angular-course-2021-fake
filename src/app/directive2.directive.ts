@@ -8,20 +8,31 @@ import {Directive, ElementRef, EventEmitter, HostListener, Input, OnChanges, Out
 @Directive ({
   selector: '[ngIfFabian]'
 })
-export class Directive2Directive  {
+export class Directive2Directive implements OnChanges {
 
-  @Input () showView:boolean =  true;
+  @Input() ngIfRicardo:boolean = true;
 
-  constructor (private templateRef: TemplateRef <any>,
-    private viewContainerRef: ViewContainerRef){
+  @Output() test = new EventEmitter<any>(null);
 
-      if(this.showView){
-        this.viewContainerRef.createEmbeddedView(this.templateRef)
-      }else{
-        this.viewContainerRef.clear();
-      }
-     
+  constructor(private templateRef: TemplateRef<any>,
+    private viewContainerRef: ViewContainerRef) { 
 
-    }
+  }
+
+  ngOnChanges(changes:any){
+    console.log('changes: ', changes.ngIfRicardo.currentValue)
+    this.setViewContainer(changes.ngIfRicardo.currentValue);
+    
+  }
+
+  setViewContainer(show:boolean){
+    if(show){
+      this.test.emit('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+      this.viewContainerRef.createEmbeddedView(this.templateRef)
+    } else {
+      this.viewContainerRef.clear();
+    } 
+  }
+
 
 }

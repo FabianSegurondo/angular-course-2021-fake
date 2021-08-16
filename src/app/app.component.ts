@@ -227,4 +227,10 @@ person1Unsubscribe(){
 test (event){
   console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,', event);
 }
+
+
+
+test100(event){
+  console.log('234234234234234', event);
+}
 }

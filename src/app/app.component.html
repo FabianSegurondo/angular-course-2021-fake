@@ -152,6 +152,12 @@ my div with ng class
 <fabiansegu-comp directive1Test></fabiansegu-comp>
 <button directive1Test (click)="onAddVideo()">add Video</button>
 
+<input type="checkbox" [(ngModel)]="sw"> ngIfFabian
 
+<div *ngIfFabian="sw"  (test)="test100($event)">
+
+  <p>my own strcutural directive </p>
+
+</div>
 
 
