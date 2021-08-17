@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {of} from 'rxjs';
 import {BehaviorSubject, Subscription} from 'rxjs';
 import { filter, map,delay } from 'rxjs/operators';
@@ -28,7 +28,11 @@ export class AppComponent {
   video = 1;
   ticktock2 = new BehaviorSubject(this.video);
 
+  @ViewChild ('myDiv1' ) myDiv1: ElementRef;
 
+  @ViewChild ('myDiv2' ) myDiv2: ElementRef;
+  
+  @ViewChild ('myCompFabo' ) myCompFabo: any;
   constructor() {
 
     //ejemplo de tictoc que vemos con of, subscribe se ejcuta el observable
@@ -232,5 +236,12 @@ test (event){
 
 test100(event){
   console.log('234234234234234', event);
+}
+onShowLocalVars(){
+  console.log(this.myDiv1, this.myDiv2, this.myCompFabo);
+    //accedmos directamente al valor del child
+
+  this.myCompFabo.onClickTest();
+  this.myDiv2.nativeElement.value = 'fabito';
 }
 }
