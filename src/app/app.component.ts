@@ -242,6 +242,8 @@ onShowLocalVars(){
     //accedmos directamente al valor del child
 
   this.myCompFabo.onClickTest();
+  this.myDiv1.nativeElement.style.backgroundColor ='green';
+  console.log(this.myDiv1, this.myDiv2, this.myCompFabo);
   this.myDiv2.nativeElement.value = 'fabito';
 }
 }

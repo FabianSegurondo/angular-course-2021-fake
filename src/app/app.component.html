@@ -160,12 +160,14 @@ my div with ng class
 
 </div>
 
-<fabiansegu-comp #myCompFabo></fabiansegu-comp>
-<div #myDiv1>contnet</div>
+<div #myDiv1 style = "background-color: yellow">contnetfabi</div>
 <p>{{myDiv1}}</p>
+
+<fabiansegu-comp #myCompFabo></fabiansegu-comp>
+
 
 <input type="text" myDiv2 value = "asdasd">
 
 <p>{{myDiv2}}</p>
 
-<button (click = 'onShowLocalVars')>show local vars
+<button (click) = 'onShowLocalVars'>show local vars</button>
