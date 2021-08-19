@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 import { Directive1Directive } from './directive1.directive';
 import { Directive2Directive } from './directive2.directive';
 import { Module1Module } from './module1/module1.module';
@@ -27,7 +28,8 @@ import { Test3Component } from './test3/test3.component';
     Module1Module,
     HomeModule,
     AdminModule,
-    BuyModule
+    BuyModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
