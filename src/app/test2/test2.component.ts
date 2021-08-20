@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-test2',
   templateUrl: './test2.component.html',
   styleUrls: ['./test2.component.scss']
 })
-export class Test2Component implements OnInit {
+export class Test2Component {
   @Input() name: string;
   @Input() lastName: string;
   @Output() onSendData = new EventEmitter(null);
@@ -15,9 +15,6 @@ export class Test2Component implements OnInit {
   myvar2 = 5;
 
   constructor() {}
-ngOnInit(): void {
-throw new Error('Method not implemented.');
-}
 
   onShowData(){
     this.onSendData.emit('general data ' + this.name + ' ' + this.lastName);
@@ -35,4 +32,5 @@ throw new Error('Method not implemented.');
   test3(event){
     console.log('event double click:', event);
   }
+
 }
