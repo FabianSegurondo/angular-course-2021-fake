@@ -7,8 +7,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class ExponentPipe implements PipeTransform {
 
-  transform(value: number): number {
-    return value * 2;
   }
 
 }
