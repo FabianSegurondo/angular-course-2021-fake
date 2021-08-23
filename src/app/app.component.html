@@ -1,34 +1,4 @@
-<div>
-  <p>Btc-Eth</p>
-  <p style="position: absolute; top: 10px; right: 10px">Btc: {{quantBtc}} Eth: {{quantEth}}</p>
-  <p></p>
-  
-  <p>Billeteras</p>
-  <div style="display: flex; flexDirection: row;">
-    <div *ngFor="let item of allWallets">
-      <billeteras
-       [wallet]="item.wallet"
-       [name]="item.name"
-       [eth]="item.eth"
-       [btc]="item.btc"
-      >
-      </billeteras>
-    </div>
-  </div>
-  
-  <p>Transacciones</p>
-  <div style="display: flex; flexDirection: row;">
-    <div *ngFor="let item of allTransactions">
-      <trans
-       [date]="item.date"
-       [from]="item.from"
-       [to]="item.to"
-       [quantity]="item.quantity"
-       [moneyType]="item.moneyType"
-       [mineType]="item.mineType"
-       [miner]="item.miner"
-      >
-    </trans>
-    </div>
-  </div>
-  
+<div style="background-color:aqua">
+<p>2- BITCOIN - ETHEREUM</p>
+<app-first-test> </app-first-test>
+</div>
