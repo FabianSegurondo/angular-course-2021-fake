@@ -6,18 +6,20 @@ import { AppComponent } from './app.component';
 import { Directive1Directive } from './directive1.directive';
 import { Directive2Directive } from './directive2.directive';
 import { FirstTestComponent } from './first-test/first-test.component';
+import { StringToDatePipe } from './string-to-date.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     Directive1Directive,
     Directive2Directive,
-    FirstTestComponent
+    FirstTestComponent,
+    StringToDatePipe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

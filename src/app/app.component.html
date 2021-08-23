@@ -1,4 +1,41 @@
-<div style="background-color:aqua">
-<p>2- BITCOIN - ETHEREUM</p>
-<app-first-test> </app-first-test>
+<div style="display: flex; flexDirection: row;">
+<p>2 - BITCOIN - ETHEREUM</p>
+<p style="position: absolute; top: 10px; right: 10px">
+ Total ETH {{setTotalETH()}}
+
+ Total BTC {{setTotalBTC()}}</p>
+
+<p></p>
+</div>
+<p>Wallets</p>
+<div style="display: flex; flexDirection: row;">
+  
+<div *ngFor="let wallet of wallets">
+<app-first-test
+ [wallet]="wallet.wallet"
+ [name]="wallet.name"
+ [eth]="wallet.eth"
+ [btc]="wallet.btc">
+</app-first-test>
+</div>
+</div>
+<p>Transactions</p>
+<div *ngIf=allTransactionDone() [style.background]="'red'"> There are not transactions </div>
+<div style="display: flex; flexDirection: row;">
+  
+<div *ngFor="let transaction of transactions; let i = index">
+<div [style.background]="transaction.mineType ==='PoW' ? 'yellow' : 'green'" style="float: left; margin: 10px; padding: 10px;">
+<p>date: {{(transaction.date | stringToDate)|date:'dd/MM/yyyy'}}</p>
+<p>from: {{transaction.from}}</p>
+<p>to: {{transaction.to}}</p>
+<p>quantity: {{transaction.quantity}}</p>
+<p>moneyType: {{transaction.moneyType | uppercase}}</p>
+<p>mineType: {{transaction.mineType}}</p>
+<p>miner: {{transaction.miner}}</p>
+<button (click)="onTransaction(i)" [disabled]="!Minar(transaction.mined , transaction.miner, transaction.mineType)">
+mine
+</button>
+
+</div>
+</div>
 </div>
