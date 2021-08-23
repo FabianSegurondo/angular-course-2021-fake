@@ -1,179 +1,34 @@
-
+<div>
+  <p>Btc-Eth</p>
+  <p style="position: absolute; top: 10px; right: 10px">Btc: {{quantBtc}} Eth: {{quantEth}}</p>
+  <p></p>
   
-
-
-<p>App component</p>
-
-
-
-<fabiansegu-comp
-[status]="myStatus" 
-(onSendData)="printDataFabianseguComp($event)">
-</fabiansegu-comp>
-
-
-<app-test2 name="Fabian" lastName="Segurondo" (onSendData)="printData($event)"></app-test2>
-
-<app-test3>
-<p>Test 3 using Banana Box</p>
-</app-test3>
-
-
-<input type="text" [(ngModel)]="myStatus">
-
-
-
-<button (click)="sw = !sw">SHOW TEST3</button>
-<div *ngIf="sw">
-  <app-test3 
-  [name]="myStatus">
-  </app-test3>
-</div>
-
-
-
-<p>----------------------</p>
-  <span *ngFor="let item of ['first', 'second', 'thrid']; let i = index;">
-    <fabiansegu-comp
-    *ngIf="item !== 'first'"
-    [status]="item" 
-    (onSendData)="printDataFabianseguComp($event)">
-    </fabiansegu-comp>
-  </span>
-  <p>-------------------------------</p>
-
-<input type="text" [(ngModel)]="color">
-<ul [ngSwitch]="color">
-  <li *ngSwitchCase="'red'">
-  <fabiansegu-comp
-    [status]="color" 
-    (onSendData)="printDataFabianseguComp($event)">
-    </fabiansegu-comp>
-  </li>
-  <li *ngSwitchCase="'yellow'">
-  <app-test3 
-  [name]="color">
-  </app-test3></li>
-  <li *ngSwitchCase="'green'">green</li>
-  <li *ngSwitchDefault>Default Orange</li>
-</ul>
-
-
--->
-<p>------------------------</p>
-
-<li *ngFor="let fullName of people;">{{fullName.name}} {{fullName.lastName}}
-</li>
-<p>-----------------------</p>
-
-<button (click)="sw = !sw">SHOW TEST3</button>
-<div  *ngIf="sw else myVarElse">
-  <app-test3 
-  [name]="myStatus">
-  </app-test3>
-</div>
-
-<div #myDiv1>
-  <p>My DIv 1</p>
-</div>
-
-<ng-template #myVarElse>
-  <p>It is my template</p>
-  <p>It is my template</p>
-  <p>It is my template</p>
-  <p>It is my template</p>
-</ng-template>
-
-
-
-<app-test2
-name="juan" 
-lastName="gutierres" 
-(onSendData)="printData($event)">
-
-<p>Mi propio contenido</p>
-<p>Mi propio contenido</p>
-<button>mi boton</button>
-
-</app-test2>
-
-
-<button (click)="sw = !sw">SHOW TEST3</button>
-<ng-container *ngIf="sw" style="margin: 30px;">
- <p>NG CONTAINER</p>
-</ng-container>
-
-
-<input type="string" [(ngModel)]="color">
-<p>-----------------------------</p>
-<p [style.fontSize.px]="color"
->
-  my p with style
-</p>
-
-<p [ngStyle]="{
-  'background': color,
-  'border': '5px gray solid'
-}">
-  my p with ng style
-</p>
-
-<p>-----------------------------</p>
-
-<div [class.est1]="color === 'hola'"> 
-  my div with class
-</div>
-
-<div [ngClass]="{
-  'est1': color === 'hola0',
-  'est2': color === 'hola1',
-  'est3': color === 'hola2'
-}"> 
-my div with ng class
-</div>
-
-<ng-container *ngFor="let item of [1,2,3,4,5]; let i = index">
-<ng-template #template2>
-<ul><li [style.background]="'yellow'">{{item}}</li></ul>
-</ng-template> 
-<ul *ngIf="i%2 === 0; else template2">
-<li [style.background]="'red'">{{item}}</li>
-</ul>
-<ng-container>
-<button (click)="onAddVideo()">add Video</button>
-
-
-<button (click)="person1Unsubscribe()">Uns PersonA</button>
-
-<input type = "text" [(ngModel)] = "color">
-
-<p [directive1Test]="'red'"
-(outputTest)="test($event)">mi primera directiva de atributo</p>
-<fabiansegu-comp directive1Test></fabiansegu-comp>
-<button directive1Test (click)="onAddVideo()">add Video</button>
-
-<input type="checkbox" [(ngModel)]="sw"> ngIfFabian
-
-<div *ngIfFabian="sw"  (test)="test100($event)">
-
-  <p>my own strcutural directive </p>
-
-</div>
-
-<div #myDiv1 style = "background-color: yellow">contnetfabi</div>
-<p>{{myDiv1}}</p>
-
-<fabiansegu-comp #myCompFabo></fabiansegu-comp>
-
-
-<input type="text" myDiv2 value = "asdasd">
-
-<p>{{myDiv2}}</p>
-
-<button (click) = 'onShowLocalVars'>show local vars</button>
-
-<p>------------------------------------</p>
-
-<p>APP</p>
-
-<app-admin1></app-admin1>
+  <p>Billeteras</p>
+  <div style="display: flex; flexDirection: row;">
+    <div *ngFor="let item of allWallets">
+      <billeteras
+       [wallet]="item.wallet"
+       [name]="item.name"
+       [eth]="item.eth"
+       [btc]="item.btc"
+      >
+      </billeteras>
+    </div>
+  </div>
+  
+  <p>Transacciones</p>
+  <div style="display: flex; flexDirection: row;">
+    <div *ngFor="let item of allTransactions">
+      <trans
+       [date]="item.date"
+       [from]="item.from"
+       [to]="item.to"
+       [quantity]="item.quantity"
+       [moneyType]="item.moneyType"
+       [mineType]="item.mineType"
+       [miner]="item.miner"
+      >
+    </trans>
+    </div>
+  </div>
+  
