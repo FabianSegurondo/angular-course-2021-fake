@@ -34,6 +34,14 @@ export class AppComponent {
   
   @ViewChild ('myCompFabo' ) myCompFabo: any;
   constructor() {
+    this.pure(2,3);
+    this.pure(10,2);
+    this.pure(5,5);
+
+
+    this.impure(2,3);
+    this.impure(10,2);
+    this.impure(5,5);
 
     //ejemplo de tictoc que vemos con of, subscribe se ejcuta el observable
     //cada persona que se suscribe recibe videos
@@ -245,5 +253,16 @@ onShowLocalVars(){
   this.myDiv1.nativeElement.style.backgroundColor ='green';
   console.log(this.myDiv1, this.myDiv2, this.myCompFabo);
   this.myDiv2.nativeElement.value = 'fabito';
+}
+
+pure(a:number, b:number){
+  console.log(a + b)
+  return a + b;
+}
+
+impure(a:number, b:number){
+  const aux = Math.random();
+  console.log( a + b + aux)
+  return a + b + aux;
 }
 }
