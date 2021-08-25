@@ -33,6 +33,9 @@ export class AppComponent {
   @ViewChild ('myDiv2' ) myDiv2: ElementRef;
   
   @ViewChild ('myCompFabo' ) myCompFabo: any;
+
+  data = [1,2,3,4,5,6,7,8,9];
+  
   constructor() {
     this.pure(2,3);
     this.pure(10,2);

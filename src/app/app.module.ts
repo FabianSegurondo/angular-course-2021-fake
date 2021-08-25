@@ -10,6 +10,7 @@ import { Module1Module } from './module1/module1.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { BuyModule } from './pages/buy/buy.module';
 import { HomeModule } from './pages/home/home.module';
+import { SharedModule } from './shared/shared.module';
 import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
 import { Test3Component } from './test3/test3.component';
@@ -29,7 +30,8 @@ import { Test3Component } from './test3/test3.component';
     HomeModule,
     AdminModule,
     BuyModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
