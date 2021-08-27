@@ -25,6 +25,10 @@ import { Home2Component } from './homecomps/home2/home2.component';
 import { AdminComponent } from './admincomps/admin/admin.component';
 import { Admin1Component } from './admincomps/admin1/admin1.component';
 import { Admin2Component } from './admincomps/admin2/admin2.component';
+import { Adm1nComponent } from './adm1n/adm1n.component';
+import { H0me1Component } from './h0me1/h0me1.component';
+import { H0me2Component } from './h0me2/h0me2.component';
+import { Subh0meComponent } from './subh0me/subh0me.component';
 
 const routes: Routes = [
   {
@@ -77,10 +81,36 @@ const routes: Routes = [
         path: 'admin2', component: Admin2Component,
       }
     ]
+  },
+  {
+    path: 'adm1n', component: Adm1nComponent,
+    children: [
+      {
+        path: '', redirectTo: 'adm1n', pathMatch: 'full'
+      },
+      {
+        path: 'adm1n', component: Admin1Component,
+      }
+    ]
+  },
+  {
+    path: 'home', component: HomeComponent,
+    children: [
+      {
+        path: '', redirectTo: 'h0me1', pathMatch: 'full'
+      },
+      {
+        path: 'h0me1', component: Home1Component,
+      },
+      {
+        path: 'h0me2', component: Home2Component,
+      },
+      {
+        path: 'subh0me', component: Home2Component,
+      }
+    ]
   }
-  ];
-  
-
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +128,12 @@ const routes: Routes = [
     Home2Component,
     AdminComponent,
     Admin1Component,
-    Admin2Component
+    Admin2Component,
+    Adm1nComponent,
+    H0me1Component,
+    H0me2Component,
+    Subh0meComponent,
+    HomeComponent
     
   ],
   imports: [
