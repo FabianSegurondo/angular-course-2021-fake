@@ -1,152 +1,27 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
-import { Directive1Directive } from './directive1.directive';
-import { Directive2Directive } from './directive2.directive';
-import { Module1Module } from './module1/module1.module';
-import { AdminModule } from './pages/admin/admin.module';
-import { BuyModule } from './pages/buy/buy.module';
-import { HomeModule } from './pages/home/home.module';
-import { SharedModule } from './shared/shared.module';
-import { Test1Component } from './test1/test1.component';
-import { Test2Component } from './test2/test2.component';
-import { Test3Component } from './test3/test3.component';
-import { View1Component } from './view1/view1.component';
 import {RouterModule, Routes} from "@angular/router";
-import { View2Component } from './view2/view2.component';
-import { View1sub1Component } from './view1/view1sub1/view1sub1.component';
-import { View1sub2Component } from './view1/view1sub2/view1sub2.component';
-import { HomeComponent } from './homecomps/home/home.component';
-import { Home1Component } from './homecomps/home1/home1.component';
-import { Home2Component } from './homecomps/home2/home2.component';
-import { AdminComponent } from './admincomps/admin/admin.component';
-import { Admin1Component } from './admincomps/admin1/admin1.component';
-import { Admin2Component } from './admincomps/admin2/admin2.component';
-import { Adm1nComponent } from './adm1n/adm1n.component';
-import { H0me1Component } from './h0me1/h0me1.component';
-import { H0me2Component } from './h0me2/h0me2.component';
-import { Subh0meComponent } from './subh0me/subh0me.component';
+
 
 const routes: Routes = [
-  {
-    path: '', redirectTo: 'view1', pathMatch: 'full'
-  },
-  {
-    path: 'view1', component: View1Component,
-    children: [
-      {
-        path: '', redirectTo: 'view1sub1', pathMatch: 'full'
-      },
-      {
-        path: 'view1sub1', component: View1sub1Component,
-      },
-      {
-        path: 'view1sub2', component: View1sub2Component,
-      }
-    ]
-  },
-  {
-    path: 'view2/:id/sub/:id2', component: View2Component
-  },
-  {
-    path: 'view3', loadChildren: () => import('./view3/view3.module').then(m => m.View3Module)
-  },
-  {
-    path: 'home', component: HomeComponent,
-    children: [
-      {
-        path: '', redirectTo: 'home1', pathMatch: 'full'
-      },
-      {
-        path: 'home1', component: Home1Component,
-      },
-      {
-        path: 'home2', component: Home2Component,
-      }
-    ]
-  },
-  {
-    path: 'admin', component: AdminComponent,
-    children: [
-      {
-        path: '', redirectTo: 'admin1', pathMatch: 'full'
-      },
-      {
-        path: 'admin1', component: Admin1Component,
-      },
-      {
-        path: 'admin2', component: Admin2Component,
-      }
-    ]
-  },
-  {
-    path: 'adm1n', component: Adm1nComponent,
-    children: [
-      {
-        path: '', redirectTo: 'adm1n', pathMatch: 'full'
-      },
-      {
-        path: 'adm1n', component: Admin1Component,
-      }
-    ]
-  },
-  {
-    path: 'home', component: HomeComponent,
-    children: [
-      {
-        path: '', redirectTo: 'h0me1', pathMatch: 'full'
-      },
-      {
-        path: 'h0me1', component: Home1Component,
-      },
-      {
-        path: 'h0me2', component: Home2Component,
-      },
-      {
-        path: 'subh0me', component: Home2Component,
-      }
-    ]
-  }
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', loadChildren:
+      () => import('./login/login.module').then(m => m.LoginModule)},
+  {path: 'pages', loadChildren:
+      () => import('./pages/pages.module').then(m => m.PagesModule)}
 ];
+
 @NgModule({
   declarations: [
-    AppComponent,
-    Test1Component,
-    Test2Component,
-    Test3Component,
-    Directive1Directive,
-    Directive2Directive,
-    View1Component,
-    View2Component,
-    View1sub1Component,
-    View1sub2Component,
-    HomeComponent,
-    Home1Component,
-    Home2Component,
-    AdminComponent,
-    Admin1Component,
-    Admin2Component,
-    Adm1nComponent,
-    H0me1Component,
-    H0me2Component,
-    Subh0meComponent,
-    HomeComponent
-    
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    Module1Module,
-    HomeModule,
-    AdminModule,
-    BuyModule,
-    CoreModule,
-    SharedModule,
     RouterModule.forRoot(routes)
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })
