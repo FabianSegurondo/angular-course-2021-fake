@@ -8,11 +8,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', loadChildren:
-      () => import('./login/login.module').then(m => m.LoginModule)},
-  {path: 'pages', loadChildren:
-      () => import('./pages/pages.module').then(m => m.PagesModule)}
+ 
 ];
 @NgModule({
   declarations: [
@@ -21,7 +17,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    /RouterModule.forRoot(routes)
+    //RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
