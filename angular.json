@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular2021": {
+    "angular-course": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/angular-course",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -34,21 +31,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
-
-    
-          
-            
-    
-
-          
-    
-    
-  
           "configurations": {
             "production": {
               "budgets": [
@@ -86,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular2021:build:production"
+              "browserTarget": "angular-course:build:production"
             },
             "development": {
-              "browserTarget": "angular2021:build:development"
+              "browserTarget": "angular-course:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular2021:build"
+            "browserTarget": "angular-course:build"
           }
         },
         "test": {
@@ -121,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "angular2021"
+  "defaultProject": "angular-course"
 }
